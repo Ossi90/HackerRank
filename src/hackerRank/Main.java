@@ -176,6 +176,24 @@ public class Main {
         return count;
     }
 
+    // #11 plus Minus Challenge
+    static void plusMinus(int[] arr) {
+        double pos=0;
+        double neg=0;
+        double zero=0;
+        for(int ar: arr){
+            if(ar>0){
+                pos++;
+            }else if(ar<0){
+                neg++;
+            }else{
+                zero++;
+            }
+        }
+        System.out.println(pos/arr.length);
+        System.out.println(neg/arr.length);
+        System.out.println(zero/arr.length);
+    }
 
     public static void main(String[] args) {
 	// write your code here
