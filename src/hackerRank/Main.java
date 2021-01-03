@@ -195,7 +195,33 @@ public class Main {
         System.out.println(zero/arr.length);
     }
 
+// #12 Min Max Sum Challenge
+    static void miniMaxSum(int[] arr) {
+        long min = 0;
+        long max = 0;
+        for(int i = 0; i<arr.length-1; i++){
+            for(int j = 0; j<arr.length-i-1;j++){
+                if(arr[j]>arr[j+1]){
+                    int temp = arr[j+1];
+                    arr[j+1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        min = count(min,1,arr.length,arr);
+        max = count(max,0,arr.length-1,arr);
+        System.out.print(max);
+        System.out.print(" ");
+        System.out.print(min);
+    }
+
+    public static long count(long sum, int minSize,int maxSize,int[]arr){
+        for(int i = minSize; i<maxSize; i++){
+            sum+= arr[i];
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
-	// write your code here
     }
 }
