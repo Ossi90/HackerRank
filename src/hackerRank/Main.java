@@ -2,6 +2,7 @@ package hackerRank;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 // These challenges can be found on https://www.hackerrank.com/dashboard under the section "Problem Solving"
@@ -222,6 +223,41 @@ public class Main {
         return sum;
     }
 
+    // #13 Birthday Cake Candles Challenge
+    public static int birthdayCakeCandles(List<Integer> candles) {
+        int count = 0;
+        int rem = 0;
+        Collections.sort(candles);
+        int x = candles.get(candles.size()-1);
+                for(int i = candles.size()-1; i>0; i--){
+                    int y = candles.get(i);
+                    if(x==y){
+                        count++;
+            }
+        }
+
+        int y = candles.get(0);
+            if(y == x){
+                rem++;
+            }
+
+        return count+rem;
+    }
+
+
+
     public static void main(String[] args) {
+        List<Integer> candles = new ArrayList<>();
+
+        /*candles.add(3);
+        candles.add(2);
+        candles.add(1);
+        candles.add(3);*/
+        for(int i = 0; i <100000; i++){
+            candles.add(9999999);
+        }
+
+        int result = birthdayCakeCandles(candles);
+        System.out.println(result);
     }
 }
