@@ -1,9 +1,6 @@
 package hackerRank;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 // These challenges can be found on https://www.hackerrank.com/dashboard under the section "Problem Solving"
 public class Main {
@@ -244,20 +241,32 @@ public class Main {
         return count+rem;
     }
 
-
-
-    public static void main(String[] args) {
-        List<Integer> candles = new ArrayList<>();
-
-        /*candles.add(3);
-        candles.add(2);
-        candles.add(1);
-        candles.add(3);*/
-        for(int i = 0; i <100000; i++){
-            candles.add(9999999);
+    // #14 Rotate Left Challenge
+    static int[] rotLeft(int[] a, int d) {
+        LinkedList<Integer> left = new LinkedList();
+        int[] ar = new int[a.length];
+        for(int i = 0; i< a.length;i++){
+            left.add(a[i]);
         }
 
-        int result = birthdayCakeCandles(candles);
-        System.out.println(result);
+        for(int i =0; i<d;i++){
+            int rotate = left.remove(0);
+            left.add(rotate);
+        }
+        int x = 0;
+        for(Integer i: left ){
+            ar[x] = i;
+            x++;
+        }
+        return ar;
+    }
+
+    public static void main(String[] args) {
+        int[] ar = {33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60, 87, 97};
+       // int[] ar = {1,2,3,4,5};
+        ar =rotLeft(ar,13);
+        for(int i: ar){
+            System.out.print(i + " ");
+        }
     }
 }
