@@ -1,5 +1,6 @@
 package hackerRank;
 
+import java.text.NumberFormat;
 import java.util.*;
 
 // These challenges can be found on https://www.hackerrank.com/dashboard under the section "Problem Solving"
@@ -248,6 +249,8 @@ public class Main {
         for(int i = 0; i< a.length;i++){
             left.add(a[i]);
         }
+        Scanner scan = new Scanner(System.in);
+
 
         for(int i =0; i<d;i++){
             int rotate = left.remove(0);
@@ -261,12 +264,23 @@ public class Main {
         return ar;
     }
 
+    // #15 Java Currency Challenge
+    public static String currency(Locale locale,double payment){
+        NumberFormat formatter= NumberFormat.getCurrencyInstance(locale);
+        String c =formatter.format(payment);
+        return c;
+    }
+
+    public static void CurrencyFormatter(double payment) {
+
+        System.out.println("US: " + currency(Locale.US,payment));
+        System.out.println("India: " + currency(new Locale("en", "in"),payment));
+        System.out.println("China: " + currency(Locale.CHINA,payment));
+        System.out.println("France: " + currency(Locale.FRANCE,payment));
+    }
+
+
     public static void main(String[] args) {
-        int[] ar = {33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60, 87, 97};
-       // int[] ar = {1,2,3,4,5};
-        ar =rotLeft(ar,13);
-        for(int i: ar){
-            System.out.print(i + " ");
-        }
+
     }
 }
