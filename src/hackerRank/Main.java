@@ -2,6 +2,7 @@ package hackerRank;
 
 import java.text.NumberFormat;
 import java.util.*;
+import java.util.ArrayList;
 
 // These challenges can be found on https://www.hackerrank.com/dashboard under the section "Problem Solving"
 public class Main {
@@ -279,8 +280,54 @@ public class Main {
         System.out.println("France: " + currency(Locale.FRANCE,payment));
     }
 
+    public static int hourGlass (int [][] arr){
+        int tempCount, hourglass,temp;
+        tempCount = 0;
+        temp = 0;
+        hourglass = -10000;
+
+
+        for(int i = 0; i< arr.length; i++){
+            for(int j = 0; j<arr.length; j++){
+                if(j< arr.length-2 && i< arr.length-2) {
+                    tempCount += arr[i][j];
+                    tempCount += arr[i][j + 1];
+                    tempCount += arr[i][j + 2];
+
+                    tempCount += arr[i + 1][j + 1];
+
+                    tempCount += arr[i + 2][j];
+                    tempCount += arr[i + 2][j + 1];
+                    tempCount += arr[i + 2][j + 2];
+
+                    if(hourglass<=tempCount){
+                        hourglass = tempCount;
+                    }
+
+                }
+                tempCount = 0;
+
+
+            }
+
+        }
+
+
+        return hourglass;
+    }
 
     public static void main(String[] args) {
+        int[][] arr = new int[6][6];
+
+
+
+        arr[0]= new int[]{0, -4, -6, 0, -7, -6};
+        arr[1]= new int[]{-1, -2, -6, -8, -3, -1};
+        arr[2]= new int[]{ -8, -4, -2, -8, -8, -6};
+        arr[3]= new int[]{-3, -1, -2, -5, -7, -4};
+        arr[4]= new int[]{-3, -5, -3, -6, -6, -6};
+        arr[5]= new int[]{-3, -6, 0 ,-8, -6, -7};
+System.out.println(hourGlass(arr));
 
     }
 }
