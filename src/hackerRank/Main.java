@@ -328,6 +328,26 @@ public class Main {
         System.out.println(isTrue);
     }
 
+    // TwoStrings Challenge
+   public  static String twoStrings(String s1, String s2) {
+       Set  list2 = new HashSet();
+       if(s1.equals(s2)){
+           return "YES";
+       }
+
+        char[] two = s2.toCharArray();
+        for(char x: two){
+            list2.add(x);
+        }
+       Iterator iterator = list2.iterator();
+       while (iterator.hasNext()){
+           if(s1.contains(iterator.next()+"")){
+               return "YES";
+           }
+       }
+        return "NO";
+    }
+
     public static String toArray(int [] arr){
         String output = "";
         for(int i =0; i<arr.length; i++){
@@ -338,10 +358,15 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        String[] letter = {"hello", "no", "yes", "what", "maybe"};
         String[] magazine = {"give", "me", "one", "grand", "today", "night"};
         String[] note = {"give", "one","one", "grand", "today"};
-       checkMagazine(magazine,note);
+       System.out.println(twoStrings("hello", "x")) ;
 
     }
+
+
+
+
+
+
 }
