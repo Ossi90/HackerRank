@@ -3,6 +3,8 @@ package hackerRank;
 import java.text.NumberFormat;
 import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 // These challenges can be found on https://www.hackerrank.com/dashboard under the section "Problem Solving"
 public class Main {
@@ -280,12 +282,11 @@ public class Main {
         System.out.println("France: " + currency(Locale.FRANCE,payment));
     }
 
+    // hour glass challenge
     public static int hourGlass (int [][] arr){
-        int tempCount, hourglass,temp;
+        int tempCount, hourglass;
         tempCount = 0;
-        temp = 0;
         hourglass = -10000;
-
 
         for(int i = 0; i< arr.length; i++){
             for(int j = 0; j<arr.length; j++){
@@ -303,31 +304,44 @@ public class Main {
                     if(hourglass<=tempCount){
                         hourglass = tempCount;
                     }
-
                 }
                 tempCount = 0;
-
-
             }
-
         }
-
-
         return hourglass;
     }
 
+    // the ransom challenge
+    static void checkMagazine(String[] magazine, String[] note) {
+        String isTrue = "Yes";
+        List <String> mag = new ArrayList<>(Arrays.asList(magazine));
+       for(int i= 0; i < note.length; i++ ){
+                if(mag.contains(note[i])){
+                    mag.remove(i);
+                   continue;
+                }else{
+                    isTrue = "No";
+                    break;
+                }
+        }
+
+        System.out.println(isTrue);
+    }
+
+    public static String toArray(int [] arr){
+        String output = "";
+        for(int i =0; i<arr.length; i++){
+            output+= arr[i];
+            output+= " ";
+        }
+        return output;
+    }
+
     public static void main(String[] args) {
-        int[][] arr = new int[6][6];
-
-
-
-        arr[0]= new int[]{0, -4, -6, 0, -7, -6};
-        arr[1]= new int[]{-1, -2, -6, -8, -3, -1};
-        arr[2]= new int[]{ -8, -4, -2, -8, -8, -6};
-        arr[3]= new int[]{-3, -1, -2, -5, -7, -4};
-        arr[4]= new int[]{-3, -5, -3, -6, -6, -6};
-        arr[5]= new int[]{-3, -6, 0 ,-8, -6, -7};
-System.out.println(hourGlass(arr));
+        String[] letter = {"hello", "no", "yes", "what", "maybe"};
+        String[] magazine = {"give", "me", "one", "grand", "today", "night"};
+        String[] note = {"give", "one","one", "grand", "today"};
+       checkMagazine(magazine,note);
 
     }
 }
